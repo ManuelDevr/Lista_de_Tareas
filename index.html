@@ -4,32 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Tareas Modernas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="Css/Styles.css">
-    <link rel="icon" type="image/x-icon" href="Img/Icon.png">
+    <link rel="icon" type="image/x-icon" href="Img/Icon.png"> 
 </head>
 <body>
     <div class="container">
         <header>
             <h1>Mis Tareas</h1>
+            <div class="stats-container">
+                <div class="stats-text">
+                    <span id="completedCount">0</span> de <span id="totalCount">0</span> completadas
+                </div>
+                <div class="progress-bar-bg">
+                    <div id="progressBar" class="progress-bar-fill" style="width: 0%"></div>
+                </div>
+            </div>
         </header>
 
         <section class="todo-input">
             <input type="text" id="taskInput" placeholder="¿Qué tienes que hacer hoy?">
-            <button id="addTaskBtn">Añadir</button>
+            <button id="addTaskBtn">
+                <i data-lucide="plus"></i>
+                <span>Añadir</span>
+            </button>
         </section>
 
         <section class="todo-list">
+            <div id="emptyState" class="empty-state">
+                <i data-lucide="clipboard-list"></i>
+                <p>No tienes tareas pendientes. ¡Disfruta tu día!</p>
+            </div>
             <ul id="taskList">
-                <li class="task-item">
-                    <span>Tarea 1</span>
-                    <button class="delete-btn">×</button>
-                </li>
-                <li class="task-item completed">
-                    <span>Tarea 2</span>
-                    <button class="delete-btn">×</button>
-                </li>
+                <!-- Se llenará dinámicamente -->
             </ul>
         </section>
-    </div>
+
+        <footer class="todo-footer" id="todoFooter" style="display: none;">
+            <button id="clearCompletedBtn" class="secondary-btn">Limpiar completadas</button>
+        </footer>
+
+        <footer class="app-footer">
+            <p>Desarrollado por <span>Manuel N.</span></p>
+        </footer>
+        </div>
+    <script src="Js/App.js"></script>
+    <script>
+      lucide.createIcons();
+    </script>
 </body>
 </html>
